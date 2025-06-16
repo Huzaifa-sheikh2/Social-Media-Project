@@ -19,8 +19,8 @@ const postListReducer = (currPostList, action) => {
 const PostListProvider = ({ children }) => {
     const [postList, dispathPostList] = useReducer(postListReducer, DEFAULT_POST_LIST);
 
-    const addPost = () => {
-
+    const addPost = (userId,postTitle,postBody,reactions,tags) => {
+        console.log (`${userId} ${postTitle} ${postBody} ${reactions} ${tags}` )
     }
 
     const deletePost = (postId) => {
