@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react";
  
 
 
-const PostList = createContext({
+export const PostList = createContext({
     postList: [],
     addPost: () => { },
     deletePost: () => { },
@@ -13,7 +13,7 @@ const postListReducer = (currPostList, action) => {
 }
 
 const PostListProvider = ({ children }) => {
-    const [postList, dispathPostList] = useReducer(postListReducer, []);
+    const [postList, dispathPostList] = useReducer(postListReducer, DEFAULT_POST_LIST);
 
     const addPost = () => {
 

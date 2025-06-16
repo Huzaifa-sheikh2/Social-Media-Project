@@ -1,12 +1,15 @@
+import { useContext } from "react"
+import { PostList as PostListData } from "../Store/Post-List-Store.jsx"
 import Post from "./Post.jsx"
-
-const PostList = ()=>{
-    return(
+const PostList = () => {
+    const { postList } = useContext(PostListData)
+    console.log(postList)
+    return (
         <>
-        <Post></Post>
-        <Post></Post>
-        <Post></Post>
-        <Post></Post>
+            {postList.map((post) => (
+                <Post />
+            ))}
+            {/* <Post /> */}
         </>
     )
 }
