@@ -1,18 +1,22 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { PostList as PostListData } from "../Store/Post-List-Store.jsx"
 import Post from "./Post.jsx"
 import WelocomeMessage from "./WelcomeMessage.jsx"
 const PostList = () => {
     const { postList, addInitialPosts } = useContext(PostListData)
 
-    const handleGetPostsClick = ()=>{
-        fetch('https://dummyjson.com/posts')
+    useEffect(()=>{
+  fetch('https://dummyjson.com/posts')
 .then(res => res.json())
 .then((data) =>{
     addInitialPosts(data.posts)
 
     console.log(data.posts)
 });
+    },[])
+
+    const handleGetPostsClick = ()=>{
+      
     }
    
     return (
